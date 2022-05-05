@@ -1,7 +1,11 @@
 package com.example.demo.service;
 
+import com.example.demo.common.Result;
 import com.example.demo.entity.Teacher;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.demo.entity.TeacherQuery;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -13,4 +17,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface TeacherService extends IService<Teacher> {
 
+    Map listTeacher(long current, long limit, TeacherQuery teacherQuery);
 }
