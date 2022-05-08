@@ -15,7 +15,7 @@
         <el-input v-model="teacherObject.career"/>
       </el-form-item>
       <el-form-item label="教师简介">
-        <el-input v-model="teacherObject.intro" :rows="10" type="textarea"/>
+        <el-input v-model="teacherObject.about" :rows="10" type="textarea"/>
       </el-form-item>
 
       <!-- 教师头像 -->

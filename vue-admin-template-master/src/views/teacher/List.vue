@@ -3,13 +3,14 @@
     <!--查询表单-->
     <el-form :inline="true" class="demo-form-inline">
       <el-form-item>
-        <el-input v-model="teacherQuery.name" placeholder="讲师名"/>
+        <el-input v-model="teacherQuery.name" placeholder="教师名"/>
       </el-form-item>
 
       <el-form-item>
-        <el-select v-model="teacherQuery.level" clearable placeholder="讲师头衔">
-          <el-option :value="1" label="高级讲师"/>
-          <el-option :value="2" label="首席讲师"/>
+        <el-select v-model="teacherQuery.level" clearable placeholder="教师头衔">
+          <el-option :value="1" label="高级教师"/>
+          <el-option :value="2" label="中级教师"/>
+          <el-option :value="3" label="初级教师"/>
         </el-select>
       </el-form-item>
 
@@ -55,12 +56,21 @@
       <el-table-column prop="name" label="名称" width="80" />
 
       <el-table-column label="头衔" width="80">
-        <template slot-scope="scope">
-          {{ scope.row.level===1?'高级讲师':'首席讲师' }}
+        <template slot-scope="scope" >
+          <!-- {{ scope.row.level===1?'高级教师':'首席教师' }} -->
+          <span v-if="scope.row.level===1">
+            {{ '高级教师' }}
+          </span>
+          <span v-if="scope.row.level===2">
+            {{ '中级教师' }}
+          </span>
+          <span v-if="scope.row.level===3">
+            {{ '初级教师' }}
+          </span>
         </template>
       </el-table-column>
 
-      <el-table-column prop="intro" label="资历" />
+      <el-table-column prop="career" label="资历" />
 
       <el-table-column prop="gmtCreate" label="添加时间" width="160"/>
 
@@ -109,7 +119,7 @@ export default {
     this.getList()
   },
   methods: { // 创建具体的方法，调用teacher.js定义的方法
-    // 讲师列表的方法
+    // 教师列表的方法
     getList(page = 1) {
       this.page = page
       teacher.getTeacherList(this.page, this.limit, this.teacherQuery)
@@ -126,12 +136,12 @@ export default {
     resetData() { // 清空的方法
       // 表单输入项数据清空
       this.teacherQuery = {}
-      // 查询所有讲师数据
+      // 查询所有教师数据
       this.getList()
     },
-    // 删除讲师的方法
+    // 删除教师的方法
     removeTeacherById(id) {
-      this.$confirm('此操作将永久删除讲师记录, 是否继续?', '提示', {
+      this.$confirm('此操作将永久删除教师记录, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'

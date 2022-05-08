@@ -1,7 +1,7 @@
 import request from '@/utils/request'
 
 export default{
-  // 按条件获取讲师列表
+  // 按条件获取教师列表
   getTeacherList(current, limit, teacherQuery) {
     return request({
       url: `/demo/teacher/pageTeacherOnCondiction/${current}/${limit}`,
@@ -11,14 +11,14 @@ export default{
       data: teacherQuery
     })
   },
-  // 删除讲师
-  deleteTeacherById(id) {
+  // 删除教师
+  deleteTeacherById(ID) {
     return request({
-      url: `/edu/teacher/${id}`,
+      url: `/demo/teacher/deleteTeacherBy/${ID}`,
       method: 'delete'
     })
   },
-  // 添加讲师
+  // 添加教师
   addTeacher(teacher) {
     return request({
       url: `/demo/teacher/addTeacher`,
@@ -26,17 +26,17 @@ export default{
       data: teacher
     })
   },
-  // 按照ID查询讲师
+  // 按照ID查询教师
   getTeacherInfo(id) {
     return request({
-      url: `/edu/teacher/getTeacher/${id}`,
+      url: `/demo/teacher/getTeacher/${id}`,
       method: 'get'
     })
   },
-  // 修改讲师
+  // 修改教师
   updateTeacherInfo(teacher) {
     return request({
-      url: `/edu/teacher/updateTeacher`,
+      url: `/demo/teacher/updateTeacher`,
       method: 'post',
       data: teacher
     })
