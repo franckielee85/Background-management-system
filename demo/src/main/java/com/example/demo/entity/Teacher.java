@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 老师
+ * 教师
  * </p>
  *
  * @author fuyao
@@ -24,28 +24,28 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="Teacher对象", description="老师")
+@ApiModel(value="Teacher对象", description="教师")
 public class Teacher implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "老师ID")
+    @ApiModelProperty(value = "教师ID")
     @TableId(value = "id", type = IdType.ID_WORKER_STR)
     private String id;
 
-    @ApiModelProperty(value = "老师姓名")
+    @ApiModelProperty(value = "教师姓名")
     private String name;
 
-    @ApiModelProperty(value = "老师简介")
+    @ApiModelProperty(value = "教师简介")
     private String about;
 
-    @ApiModelProperty(value = "老师经历")
+    @ApiModelProperty(value = "教师经历")
     private String career;
 
-    @ApiModelProperty(value = "头衔 1高级老师 2中级老师 3初级老师")
+    @ApiModelProperty(value = "头衔 1高级教师 2中级教师 3初级教师")
     private Integer level;
 
-    @ApiModelProperty(value = "老师头像")
+    @ApiModelProperty(value = "教师头像")
     private String avatar;
 
     @ApiModelProperty(value = "排序")
